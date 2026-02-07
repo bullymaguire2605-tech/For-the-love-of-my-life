@@ -21,7 +21,7 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      max-width: 480px;
+      max-width: 500px;
     }
 
     h1 {
@@ -35,11 +35,31 @@
 
     .highlight {
       display: block;
-      margin-top: 20px; /* one full line gap */
+      margin-top: 20px; /* one line gap */
       font-size: 22px;
       font-weight: bold;
       font-style: italic;
       color: #222;
+    }
+
+    #musicBtn {
+      background: #89CFF0;
+      color: #333;
+      font-size: 16px;
+      margin: 15px auto;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-top: 20px;
     }
 
     button {
@@ -48,27 +68,19 @@
       border: none;
       border-radius: 40px;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
       white-space: nowrap;
-      margin: 10px auto;
-      display: block;
     }
 
     #yesBtn {
       background-color: #4CAF50;
       color: white;
+      transform-origin: center;
     }
 
     #noBtn {
       background-color: #f44336;
       color: white;
-    }
-
-    #musicBtn {
-      background: #89CFF0;
-      color: #333;
-      font-size: 16px;
-      margin-bottom: 15px;
     }
 
     .fullscreen-yes {
@@ -78,7 +90,7 @@
       height: 100vh;
       font-size: 48px;
       border-radius: 0;
-      z-index: 10;
+      z-index: 999;
     }
 
     img {
@@ -108,15 +120,17 @@
 
     <button id="musicBtn" onclick="startMusic()">Play music 🎵</button>
 
-    <!-- YES ABOVE NO = no overlap ever -->
-    <button id="yesBtn" onclick="sayYes()">YES</button>
-    <button id="noBtn" onclick="noClicked()">No</button>
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">YES</button>
+      <button id="noBtn" onclick="noClicked()">No</button>
+    </div>
 
   </div>
 
   <script>
     let noCount = 0;
     let musicStarted = false;
+    let yesScale = 1;
 
     const noTexts = [
       "Wtf????????????????",
@@ -144,9 +158,13 @@
         noBtn.innerText = noTexts[noCount];
         noCount++;
 
-        let scale = 1 + noCount * 0.25;
-        yesBtn.style.transform = `scale(${scale})`;
+        // VERY small growth, capped
+        yesScale += 0.08;
+        if (yesScale > 1.6) yesScale = 1.6;
+
+        yesBtn.style.transform = `scale(${yesScale})`;
       } else {
+        // Final explosion
         yesBtn.classList.add("fullscreen-yes");
         yesBtn.innerText = "YES";
         noBtn.style.display = "none";
