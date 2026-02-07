@@ -35,20 +35,11 @@
 
     .highlight {
       display: block;
-      margin-top: 10px;
-      font-size: 20px;
+      margin-top: 20px; /* one full line gap */
+      font-size: 22px;
       font-weight: bold;
       font-style: italic;
       color: #222;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
-      flex-wrap: wrap;
     }
 
     button {
@@ -59,6 +50,8 @@
       cursor: pointer;
       transition: transform 0.3s ease;
       white-space: nowrap;
+      margin: 10px auto;
+      display: block;
     }
 
     #yesBtn {
@@ -75,7 +68,7 @@
       background: #89CFF0;
       color: #333;
       font-size: 16px;
-      margin-top: 10px;
+      margin-bottom: 15px;
     }
 
     .fullscreen-yes {
@@ -108,17 +101,16 @@
     <h1>Naina,</h1>
 
     <p>
-      You mean the world to me. I know I made you feel like shit quite a few times
+      You mean the world to me. I know I made you feel like shit quite a few times but...
       <span class="highlight">मी त्वै अग्णाण् छु</span><br><br>
       <strong>Can I be your sweater wala billa again?</strong>
     </p>
 
     <button id="musicBtn" onclick="startMusic()">Play music 🎵</button>
 
-    <div class="buttons">
-      <button id="yesBtn" onclick="sayYes()">YES</button>
-      <button id="noBtn" onclick="noClicked()">No</button>
-    </div>
+    <!-- YES ABOVE NO = no overlap ever -->
+    <button id="yesBtn" onclick="sayYes()">YES</button>
+    <button id="noBtn" onclick="noClicked()">No</button>
 
   </div>
 
@@ -176,3 +168,4 @@
 
 </body>
 </html>
+
