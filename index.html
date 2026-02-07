@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Naina 💙</title>
+  <title>For The Love Of My Life ❤️</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -40,19 +40,20 @@
       border: none;
       border-radius: 40px;
       cursor: pointer;
-      margin: 15px;
+      margin: 12px;
       transition: all 0.3s ease;
     }
 
     #yesBtn {
       background-color: #4CAF50;
       color: white;
-      z-index: 1;
+      z-index: 2;
     }
 
     #noBtn {
       background-color: #f44336;
       color: white;
+      z-index: 1;
     }
 
     .fullscreen-yes {
@@ -63,10 +64,18 @@
       height: 100vh;
       font-size: 48px;
       border-radius: 0;
+      z-index: 5;
+    }
+
+    #musicBtn {
+      background: #89CFF0;
+      color: #333;
+      font-size: 16px;
     }
   </style>
 </head>
-<body onclick="startMusic()">
+
+<body>
 
   <!-- Background Music -->
   <audio id="bgMusic" loop>
@@ -74,16 +83,22 @@
   </audio>
 
   <div class="container" id="card">
+
     <h1>Hey Naina 💙</h1>
+
     <p>
       I’ve been meaning to ask you something…<br><br>
       You make my days softer, my laughs louder,<br>
       and my heart calmer.<br><br>
-      Can I be your sweater wala billa again? 🧣🐱
+      <strong>Can I be your sweater wala billa again?</strong> 🧣🐱
     </p>
+
+    <!-- Explicit play button = guaranteed mobile audio -->
+    <button id="musicBtn" onclick="startMusic()">Play music 🎵</button><br>
 
     <button id="yesBtn" onclick="sayYes()">YES</button>
     <button id="noBtn" onclick="noClicked()">NO</button>
+
   </div>
 
   <script>
@@ -114,8 +129,8 @@
         noBtn.innerText = noTexts[noCount];
         noCount++;
 
-        let currentScale = 1 + noCount * 0.25;
-        yesBtn.style.transform = `scale(${currentScale})`;
+        let scale = 1 + noCount * 0.3;
+        yesBtn.style.transform = `scale(${scale})`;
       } else {
         yesBtn.classList.add("fullscreen-yes");
         yesBtn.innerText = "YES 💙";
@@ -124,32 +139,15 @@
     }
 
     function sayYes() {
-      document.body.innerHTML = `
-        <div style="
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          height:100vh;
-          background: linear-gradient(135deg, #89CFF0, #ffffff);
-          text-align:center;
-          font-family: Arial, sans-serif;
-        ">
-          <div style="
-            background:white;
-            padding:50px;
-            border-radius:25px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.15);
-            max-width:450px;
-          ">
-            <h1>💙💙💙</h1>
-            <p style="font-size:20px; color:#555;">
-              I knew it, Naina.<br><br>
-              Thank you for choosing me,<br>
-              today and every day.<br><br>
-              Happy Propose Day 🌸
-            </p>
-          </div>
-        </div>
+      const card = document.getElementById("card");
+      card.innerHTML = `
+        <h1>💙💙💙</h1>
+        <p style="font-size:20px; color:#555;">
+          I knew it, Naina.<br><br>
+          Thank you for choosing me,<br>
+          today and every day.<br><br>
+          Happy Propose Day 🌸
+        </p>
       `;
     }
   </script>
