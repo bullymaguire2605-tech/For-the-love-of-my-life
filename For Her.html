@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Naina 💙</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #89CFF0, #ffffff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      max-width: 420px;
+      position: relative;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      margin: 15px;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+      z-index: 1;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .fullscreen-yes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      font-size: 48px;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body onclick="startMusic()">
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container" id="card">
+    <h1>Hey Naina 💙</h1>
+    <p>
+      I’ve been meaning to ask you something…<br><br>
+      You make my days softer, my laughs louder,<br>
+      and my heart calmer.<br><br>
+      Can I be your sweater wala billa again? 🧣🐱
+    </p>
+
+    <button id="yesBtn" onclick="sayYes()">YES</button>
+    <button id="noBtn" onclick="noClicked()">NO</button>
+  </div>
+
+  <script>
+    let noCount = 0;
+    let musicStarted = false;
+
+    const noTexts = [
+      "Are you sure?",
+      "Pakka naaaaa?",
+      "I'll be sad",
+      "I'll be really sad",
+      "I'll be really really saddddddd"
+    ];
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const music = document.getElementById("bgMusic");
+
+    function startMusic() {
+      if (!musicStarted) {
+        music.play();
+        musicStarted = true;
+      }
+    }
+
+    function noClicked() {
+      if (noCount < noTexts.length) {
+        noBtn.innerText = noTexts[noCount];
+        noCount++;
+
+        let currentScale = 1 + noCount * 0.25;
+        yesBtn.style.transform = `scale(${currentScale})`;
+      } else {
+        yesBtn.classList.add("fullscreen-yes");
+        yesBtn.innerText = "YES 💙";
+        noBtn.style.display = "none";
+      }
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          height:100vh;
+          background: linear-gradient(135deg, #89CFF0, #ffffff);
+          text-align:center;
+          font-family: Arial, sans-serif;
+        ">
+          <div style="
+            background:white;
+            padding:50px;
+            border-radius:25px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.15);
+            max-width:450px;
+          ">
+            <h1>💙💙💙</h1>
+            <p style="font-size:20px; color:#555;">
+              I knew it, Naina.<br><br>
+              Thank you for choosing me,<br>
+              today and every day.<br><br>
+              Happy Propose Day 🌸
+            </p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
