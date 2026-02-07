@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For The Love Of My Life ❤️</title>
+  <title>For Naina 💙</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,12 +21,13 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      max-width: 420px;
+      max-width: 450px;
       position: relative;
     }
 
     h1 {
       color: #333;
+      word-break: break-word;
     }
 
     p {
@@ -56,6 +57,12 @@
       z-index: 1;
     }
 
+    #musicBtn {
+      background: #89CFF0;
+      color: #333;
+      font-size: 16px;
+    }
+
     .fullscreen-yes {
       position: fixed;
       top: 0;
@@ -67,10 +74,10 @@
       z-index: 5;
     }
 
-    #musicBtn {
-      background: #89CFF0;
-      color: #333;
-      font-size: 16px;
+    img {
+      max-width: 100%;
+      border-radius: 20px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -84,20 +91,18 @@
 
   <div class="container" id="card">
 
-    <h1>Hey Naina 💙</h1>
+    <h1>Nainaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
 
     <p>
-      I’ve been meaning to ask you something…<br><br>
-      You make my days softer, my laughs louder,<br>
-      and my heart calmer.<br><br>
-      <strong>Can I be your sweater wala billa again?</strong> 🧣🐱
+      You mean the world to me. I know I made you feel like shit quite a few times
+      but मी त्वै अग्णाण् छु |<br><br>
+      <strong>Can I be your sweater wala billa again?</strong>
     </p>
 
-    <!-- Explicit play button = guaranteed mobile audio -->
     <button id="musicBtn" onclick="startMusic()">Play music 🎵</button><br>
 
     <button id="yesBtn" onclick="sayYes()">YES</button>
-    <button id="noBtn" onclick="noClicked()">NO</button>
+    <button id="noBtn" onclick="noClicked()">No</button>
 
   </div>
 
@@ -106,11 +111,13 @@
     let musicStarted = false;
 
     const noTexts = [
-      "Are you sure?",
-      "Pakka naaaaa?",
-      "I'll be sad",
-      "I'll be really sad",
-      "I'll be really really saddddddd"
+      "Wtf????????????????",
+      "Are you sure though?????",
+      "Pakka naaaaaa?",
+      "Pleaseeeee??",
+      "I'll be your good kitty 🥺",
+      "I'll be really sad :(",
+      "I'll be really really really sadddddddddddddddddddddddd"
     ];
 
     const yesBtn = document.getElementById("yesBtn");
@@ -129,11 +136,11 @@
         noBtn.innerText = noTexts[noCount];
         noCount++;
 
-        let scale = 1 + noCount * 0.3;
+        let scale = 1 + noCount * 0.35;
         yesBtn.style.transform = `scale(${scale})`;
       } else {
         yesBtn.classList.add("fullscreen-yes");
-        yesBtn.innerText = "YES 💙";
+        yesBtn.innerText = "YES";
         noBtn.style.display = "none";
       }
     }
@@ -141,13 +148,12 @@
     function sayYes() {
       const card = document.getElementById("card");
       card.innerHTML = `
-        <h1>💙💙💙</h1>
+        <h1>I knew itttttttttttttttttttttttttttttttttt</h1>
         <p style="font-size:20px; color:#555;">
-          I knew it, Naina.<br><br>
-          Thank you for choosing me,<br>
-          today and every day.<br><br>
-          Happy Propose Day 🌸
+          You can take the sweater btwwwwwww, I know you want it 😆<br><br>
+          Happy Propose Dayyy!!! I love youuuuuuuuuuuuuuuuuuuuu!!
         </p>
+        <img src="billa.jpg" alt="sweater wala billa">
       `;
     }
   </script>
